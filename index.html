@@ -13,11 +13,14 @@
       <h1>blue31500</h1>
       <p>独学4日でTodoアプリ作ったエンジニア</p>
     </div>
+    <button id="theme-toggle">🌙 ダークモード</button>
   </header>
 
   <main>
     <section class="works">
-      <h2>ClearTodo</h2>
+      <h2>Contact</h2>
+      <p>メール:t.shunsuke127@gmail.com </p>
+      <p>X: <a href="https://x.com/@blue31500"target='_blank'>@blue31500</a></p>
       <div class="card">
         <a href="https://todo-app-smoky-beta-46.vercel.app/" target="_blank">
           <img src="https://todo-app-smoky-beta-46.vercel.app/og.png" alt="ClearTodo">
@@ -31,5 +34,22 @@
       <p>連絡先：<a href="mailto:t.shunsuke127@gmail.com">t.shunsuke127@gmail.com</a></p>
     </section>
   </main>
+
+  <script>
+    const toggle = document.getElementById('theme-toggle');
+toggle.addEventListener('click', () => {
+  document.body.classList.toggle('dark-mode');
+  toggle.textContent = document.body.classList.contains('dark-mode') ? '☀️ ライトモード' : '🌙 ダークモード';
+  // テーマをlocalStorageに保存（次回も保持）
+  localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+});
+
+// ページ読み込み時に保存されたテーマ適用
+if (localStorage.getItem('theme') === 'dark') {
+  document.body.classList.add('dark-mode');
+  toggle.textContent = '☀️ ライトモード';
+}
+  </script>
+
 </body>
 </html>
